@@ -4,28 +4,35 @@
 
 
 import React from 'react';
+import myimage from "../assets/back.jpeg"
+import image from "../assets/arms.jpeg"
 
 
 export default function NewsPage() {
   const articles = [
     {
-      title: 'News on Homelesness in NYC',
-      description: 'Get informed on the ongoing housing crisis.',
-      url: 'https://www.coalitionforthehomeless.org/the-latest/news/',
-      imageUrl: 'https://nypost.com/wp-content/uploads/sites/2/2019/04/homelessnewss-nyc-better-way.jpg?quality=75&strip=all',
-
+      title: 'Back Day ',
+      description: 'For Back I did Horizontial and Vertical workouts. For Horizontial: Chest supported rows: 50 reps, 2 sets of 25. Seated cable rows: 50 reps 2 sets of 25. For Vertical: Pull down machine 50 reps 2 sets of 25 and Weighted pull up variations: 100 reps 4 sets of 20',
+      imageUrl: myimage
     },
     {
-      title: 'News on Enviormental Conservation in NYC',
-      description: 'Explore how communities are coming together to make a difference.',
-      url: 'https://dec.ny.gov/',
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/20/2010s_New_York_State_DEC_logo.png"
+      title: ' Arms ',
+      description: ' For arms i started off with Biceps(Curls):Dumbbell curl 50 reps, 2 sets of 25 & Hammer curl 50 reps 2 sets of 25. Then I moved onto Triceps(Lateral): Diamond pushups 50 reps 2 sets of 25 & dips 50 reps 2 sets of 25. Long head: Over head plate extension 50 reps 2 sets of 25. Forearm: Rice Bucket training for 10 min  ',
+      url: '',
+      imageUrl: image
+
     },
+    // {
+    //   title: '',
+    //   description: ''
+    //   // imageUrl: 'https://',
+    // },
+
   ];
 
   return (
     <div className="page-container">
-      <h1 className="heading">Latest News</h1>
+      <h1 className="heading">Post Workout</h1>
       <div className="articles-container">
         {articles.map((article, index) => (
           <div key={index} className="article-card">
@@ -38,9 +45,7 @@ export default function NewsPage() {
                 rel="noopener noreferrer"
                 className="article-link"
 
-              >
-                Read Full Article
-              </a>
+              >              </a>
             </div>
             <img src={article.imageUrl} alt={article.title} className="article-image" />
           </div>

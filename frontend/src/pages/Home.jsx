@@ -1,21 +1,25 @@
-
 import React from 'react';
 
 export default function Home() {
   return (
-    <div className="home">
+    <section>
+          <div className="home">
       <h1 align="center">
-        Welcome to Lend A Hand NYC
-      </h1>
+        Welcome to Momentum Fitness !
+      </h1>    </div>
+
       <p align="center">
-        Lend A Hand aims to make volunteering accessible and convenient. In addition, this platform strives to promote a stronger sense of community engagement, as well as help local causes receive the support they need.
+      A user-friendly fitness app that empowers people to learn, visualize their workouts, track their progress over time, Improve, Dominate & Build Momentum !
       </p>
 
       <img
-        src="https://parkterracehotel.com/wp-content/uploads/2023/06/GettyImages-157675185.jpg"
+        src="https://t3.ftcdn.net/jpg/05/32/60/54/360_F_532605420_JnPR6Gfb3ZnUAu4A3ioAv4Gn2poIjj3T.jpg"
         style={{ width: '100%', height: 'auto' }}
       />
-    </div>
+    </section>
+
 
   );
 }
+
+

@@ -4,13 +4,16 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-column">
-        <h3>Get Involved Today</h3>
-        <p>Join our community and make a difference!</p>
+        <h3>Get started Today</h3>
+        <p> Fitness is better together!
+           Join our community, track your progress, and Start Your Momentum Now !
+
+        </p>
         <button className="footer-button">Sign Up</button>
       </div>
       <div className="footer-column">
         <h3>Contact Us</h3>
-        <p>Email: support@lendahand.org</p>
+        <p>Email: support@Momentumfitness.org</p>
         <p>Phone: (123) 456-7890</p>
       </div>
       <div className="footer-column">

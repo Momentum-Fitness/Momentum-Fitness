@@ -2,8 +2,8 @@ const Post = require('../models/Pos');
 
 exports.addPost = async (req, res) => {
     console.log(req.body);
-    const { event_title, event_info, commitment_type, skills, address, city, state, zip, event_date, event_time, volunteers_needed } = req.body;
-    const posData = await Post.create(event_title, event_info, commitment_type, skills, address, city, state, zip, event_date, event_time, volunteers_needed);
+    const { event_title, event_info } = req.body;
+    const posData = await Post.create(event_title, event_info );
     res.send(posData);
 }
 
@@ -21,8 +21,8 @@ exports.updatePost = async (req,res) => {
 try{
     const id =  Number(req.params.id);
     console.log("REQ BODY", req.body); 
-    const { event_title, event_info, commitment_type, skills, address, city, state, zip, event_date, event_time, volunteers_needed } = req.body;
-    const posData = await Post.updatePost(event_title, event_info, commitment_type, skills, address, city, state, zip, event_date, event_time, volunteers_needed,id);
+    const { event_title, event_info,  } = req.body;
+    const posData = await Post.updatePost(event_title, event_info);
     res.send(posData);
 
 } catch (err) {

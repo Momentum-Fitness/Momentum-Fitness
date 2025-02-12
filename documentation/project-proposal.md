@@ -1,6 +1,8 @@
 ### 🏙️ Mission Statement
 Clearly state the purpose and objectives of the project in a straightforward manner. Avoid unnecessary jargon or technical language that might confuse readers.
-* Keep it concise (1-3 sentences)
+
+* I want to create a user-friendly fitness app that empowers users to visualize their workouts, track their progress over time, and stay motivated through rewarding and engaging experiences.
+
 
 *Example:* At Prints For A Purpose, our mission is to connect individuals in need of assistive devices with a compassionate global community of skilled builders. Using 3D printing technology, we can create affordable solutions that enhance independence and transform lives.
 ___
@@ -8,9 +10,11 @@ ___
 ### 🚀 Problem Statement
 
 Clearly define the problem or challenge your project aims to address. Explain why this problem is important and how your project will provide a solution.
-* Who the application's audience is
-* What the application does for the user
-* Why the user would use the application
+* Who the application's audience is individuals looking to improve their fitness levels, maintain a healthy lifestyle, and stay motivated through interactive and social fitness features. This includes beginners, fitness enthusiasts, and social exercisers.
+
+* What the application does for the user is host a  user-friendly fitness platform/app that empowers users to visualize their workouts, track their progress over time, and stay motivated through rewarding and engaging experiences.
+
+* Why the user would use the application 
 
 *Example:* Our application would mainly serve individuals with disability or mobility issues under financial or physical constraints. A priority would be those who live in underprivileged communities, conflict-affected areas, or communities with limited healthcare infrastructure. Our product will leverage the power of technology and community collaboration to make assistive devices more accessible and affordable to those in need. This is done by connecting individuals to a network of builders who facilitate the creation and distribution of affordable, 3D-printed devices.
 ___
@@ -20,6 +24,27 @@ ___
 * Describes all the features and their purpose.
 * For each feature, outline the user flow.
 * Identify features required for a MVP
+
+* Product Requirements Must-Haves: 
+
+
+As a user, I want to track my workouts so I can monitor my progress over time. Keep track of reps and sets with the date using a user friendly form
+As a User, I want to earn rewards for achieving goals so I feel motivated to stay consistent.For example after completing a fitness goal set, users could unlock a personalized badge for the accomplishment and get recognized 
+As a User, I want to be able to create an account and sign in 
+As a User, I want to have a profile page with a profile pic, name, and bio 
+As a User, I want to have a 3D diagram of a body with a 360 view. Allow users to click on upper and lower body parts both front and back to find more info and improve the selected area. 
+As a User, I want to have a place where you can add your own workout video based on your skill level below the description of the body part 
+
+
+
+
+
+Nice-to-Haves
+As a User, I want a chat feature where you and your friends can share your goals to stay competitive and build accountability. Chat with workout buddies and display workout goals in the chat. When joining the chat you need to post a personal goal 
+As a User, I want the app to sync with my fitness devices so my health data is comprehensive and up-to-date. Fitbit / apple watch etc 
+Remind users 1hr, 45min, 30 min, 10 min, 5 min before workout 
+As a User, I want personalized AI-generated insights and suggestions to optimize my fitness journey. Suggest fitness recommendations and goals, suggest exercises, or offer mindfulness exercises. Example: "Start a 10-minute guided meditation."Try 10 min of cardio today Try a 5 min meditation before u begin working 
+Feed page where users can Post Fitness related pictures and videos to motivate and update others on their progress
 
 
 Example: 

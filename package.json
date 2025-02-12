@@ -1,7 +1,7 @@
 {
   "name": "react-express-auth-template",
   "version": "1.0.0",
-  "description": "",
+  "description": "This repo can be used to start a React+Express project fully equipped with Auth for user creation and login.",
   "main": "server/index.js",
   "scripts": {
     "kickstart": "cd frontend && npm i && npm run build && cd ../server && npm i && npm run migrate && npm run seed",
@@ -21,5 +21,6 @@
     "axios": "^1.7.7",
     "date-fns": "^4.1.0",
     "react-datepicker": "^7.5.0"
-  }
+  },
+  "devDependencies": {}
 }

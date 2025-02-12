@@ -4,8 +4,8 @@ import { fetchHandler, getPostOptions } from "../utils/fetchingUtils";
 
 const baseUrl = '/api/organization';
 
-export const createOrganization = async ({ username, password,org_name,about_org,adress,zip,cause }) => {
-  return fetchHandler(baseUrl, getPostOptions({ username, password,org_name,about_org,adress,zip,cause }))
+export const createOrganization = async ({ username,password,}) => {
+  return fetchHandler(baseUrl, getPostOptions({username,password }))
 };
 
 // // For this one adapter, if an error occurs, we handle it here by printing

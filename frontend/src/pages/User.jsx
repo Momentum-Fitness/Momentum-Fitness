@@ -37,18 +37,23 @@ export default function UserPage() {
   // But we also have to consider that we may NOT be on the current users page
   const profileUsername = isCurrentUserProfile ? currentUser.username : userProfile.username;
 
-  return <>
-    <h1>{profileUsername}</h1>
-    <p>Hours Volunteered:</p>
-    <p>User BIO: </p>
-    <p>CHALLANGES: (e.g., “Volunteer for 10 hours this month” and offer rewards such as badges, discounts at local businesses, or entries into prize draws for achieving milestones.)
-</p>
+  return <>   
+   
+    <h1 align="center">
+      {profileUsername}</h1>
+      {
 
-    {!!isCurrentUserProfile && <button onClick={handleLogout}>Log Out</button>}
-
-    {
       !!isCurrentUserProfile
       && <UpdateUsernameForm currentUser={currentUser} setCurrentUser={setCurrentUser} />
     }
+    <p>User BIO: </p>
+    <p>CHALLANGES: (Ex: Work out for 4 days in a row.)
+    </p>
+
+
+
+    {!!isCurrentUserProfile && <button onClick={handleLogout}>Log Out</button>}
+
+  
   </>;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createOrganization } from '../adapters/Org-adapter';
+import { createOrganization } from '../adapters/signup-adapter';
 import { useNavigate } from "react-router-dom";
 
 
@@ -7,11 +7,12 @@ export default function OrganizationSignupForm() {
   const [heardAbout, setHeardAbout] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [orgName, setOrgName] = useState('');
-  const [aboutOrg, setAboutOrg] = useState('');
-  const [adress, setAddress] = useState('');
-  const [zip, setZip] = useState('');
-  const [cause, setCause] = useState('');
+  const [gender, setGender] = useState('');
+  const [height, setHeight] = useState('');
+  const [weight, setWeight] = useState('');
+  const [bio, setBio] = useState('');
+  const [goal, setGoal] = useState('');
+
   const navigate = useNavigate(); //
 
   const handleSubmit =  async (e) => {
@@ -19,17 +20,16 @@ export default function OrganizationSignupForm() {
     navigate(`/event-feed`);//
 
     console.log("Form submitted with data:", {
-      heardAbout,
       username,
       password,
-      orgName,
-      aboutOrg,
-      adress,
-      zip,
-      cause,
+      gender,
+      height,
+      weight,
+      bio,
+      goal,
       canPostOpportunities: true ,
     });
-    const [organization, error] = await createOrganization({ username, password, orgName, aboutOrg,adress,zip,cause });
+    const [organization, error] = await createOrganization({ heardAbout,username,password,gender,height,weight,bio,goal});
    if (error) return setErrorText(error.message);
 
 
@@ -37,18 +37,18 @@ export default function OrganizationSignupForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2 align="center">Organization Sign-Up</h2>
+      <h2 align="center">Sign-Up</h2>
       <p align="center">
-        Lend A Hand aims to make volunteering more accessible and convenient.
+        Momentum Fitness aims to make your workout more efficent and convenient.
       </p>
 
-      <label><b>How did you find Lend A Hand?</b></label>
+      {/* <label><b>How did you find Momentum Fitness?</b></label>
       <input
         type="text"
         value={heardAbout}
         onChange={(e) => setHeardAbout(e.target.value)}
         required
-      />
+      /> */}
 
       <label><b>Username:</b></label>
       <input
@@ -66,51 +66,57 @@ export default function OrganizationSignupForm() {
         required
       />
 
-      <label><b>Organization Name:</b></label>
-      <input
-        type="text"
-        value={orgName}
-        onChange={(e) => setOrgName(e.target.value)}
-        required
-      />
-
-      <label> <b>About the Organization:</b></label>
-      <textarea
-        value={aboutOrg}
-        onChange={(e) => setAboutOrg(e.target.value)}
-        required
-      />
-
-      <label><b>Address:</b></label>
-      <input
-        type="text"
-        value={adress}
-        onChange={(e) => setAddress(e.target.value)}
-        required
-      />
-
-      <label><b>Zip Code:</b></label>
-      <input
-        type="text"
-        value={zip}
-        onChange={(e) => setZip(e.target.value)}
-        required
-      />
-
-      <label><b>Cause Supported:</b></label>
+{/* <label><b>Gender:</b></label>
       <select
-        value={cause}
-        onChange={(e) => setCause(e.target.value)}
+        value={gender}
+        onChange={(e) => setGender(e.target.value)}
         required
       >
-        <option value="education">Education</option>
-        <option value="homelessness">Homelessness</option>
-        <option value="environmental">Environmental Conservation</option>
-        <option value="animal">Animal Welfare</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
       </select>
+      
+      <label><b>What's Your height?:</b></label>
+      <input
+        type="Height"
+        value={height}
+        onChange={(e) => setHeight(e.target.value)}
+        required
+      />
+
+      <label><b>Whats your weight?:</b></label>
+      <input
+        type="Weight"
+        value={weight}
+        onChange={(e) => setWeight(e.target.value)}
+        required
+      />
+
+      <label> <b>Bio:</b></label>
+      <textarea
+      type="Tell us a little about you"
+        value={bio}
+        onChange={(e) => setBio(e.target.value)}
+        required
+      />
+
+
+      <label><b>Primary Fitness Goal:</b></label>
+      <select
+        value={goal}
+        onChange={(e) => setGoal(e.target.value)}
+        required
+      >
+        <option value="weightLoss">Weight Loss</option>
+        <option value="muscleGain">Muscle Gain</option>
+        <option value="endurance">Endurance</option>
+        <option value="generalFitness">General Fitness</option>
+        <option value="other">other</option>
+ */}
+      {/* </select> */}
 
       <p></p>
-      <button type="submit"><b>Sign Up as Organization</b></button>
+      <button type="submit"><b>Sign Up !</b></button>
     </form>
   );
 }

@@ -2,20 +2,20 @@ const knex = require('../db/knex');
 
 class Post {
 
-    static async create(event_title, event_info, commitment_type, skills, address, city, state, zip, event_date, event_time, volunteers_needed) {
-        const query = `INSERT INTO post (event_title, event_info, commitment_type, skills, address, city, state, zip, event_date, event_time, volunteers_needed)
-        VALUES (?,?,?,?,?,?,?,?,?,?,?) RETURNING *`;
-        const result = await knex.raw(query, [event_title, event_info, commitment_type, skills, address, city, state, zip, event_date, event_time, volunteers_needed]);
+    static async create(event_title, event_info, id, ) {
+        const query = `INSERT INTO post (id,event_title, event_info)
+        VALUES (?,?,)? RETURNING *`;
+        const result = await knex.raw(query, [event_title, event_info, id,]);
        return result.rows[0];
     
     }
 
-    static async updatePost (event_title, event_info, commitment_type, skills, address, city, state, zip, event_date, event_time, volunteers_needed, id) {
+    static async updatePost (event_title, event_info,id) {
         const query = `UPDATE post
-        SET event_title = ?,event_info = ?, commitment_type = ?, skills = ?, address = ?, city = ?, state = ?, zip = ?, event_date = ?, event_time = ?, volunteers_needed = ?
+        SET event_title = ?,event_info = ?, id = ?
         WHERE id = ?
         RETURNING *;`;
-        const result = await knex.raw(query, [event_title, event_info, commitment_type, skills, address, city, state, zip, event_date, event_time, volunteers_needed,id]);
+        const result = await knex.raw(query, [event_title, event_info,id]);
        return result.rows[0];
     
     }

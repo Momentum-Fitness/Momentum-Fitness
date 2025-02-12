@@ -4,13 +4,13 @@ import { fetchHandler, getPostOptions, getPatchOptions,deleteOptions } from "../
 
 const baseUrl = '/api/posts';
 
-export const createPost = async ({ event_title, event_info, commitment_type, skills, address, city, state, zip, event_date, event_time, volunteers_needed }) => {
-  return fetchHandler(baseUrl, getPostOptions({ event_title, event_info, commitment_type, skills, address, city, state, zip, event_date, event_time, volunteers_needed, }))
+export const createPost = async ({ event_title, event_info,  }) => {
+  return fetchHandler(baseUrl, getPostOptions({ event_title, event_info, }))
 };
 
-export const updatePost = async ({id, event_title, event_info, commitment_type, skills, address, city, state, zip, event_date, event_time, volunteers_needed}) => {
+export const updatePost = async ({id, event_title, event_info, }) => {
   console.log("ADAPTER", id);
-  return fetchHandler(`${baseUrl}/${id}`, getPatchOptions({ event_title, event_info, commitment_type, skills, address, city, state, zip, event_date, event_time, volunteers_needed }))
+  return fetchHandler(`${baseUrl}/${id}`, getPatchOptions({ event_title, event_info, }))
 };
 
 export const deletePost = async (id) => {

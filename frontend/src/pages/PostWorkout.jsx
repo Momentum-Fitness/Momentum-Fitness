@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import logo from "../Assets/logo.png";
+import logo from "../Assets/Lend_A_Hand.png";
 import { updatePost,deletePost } from '../adapters/Post-adaptors';
 import { useNavigate } from 'react-router-dom';
 
@@ -73,9 +73,9 @@ export default function EventPage() {
         try {
             // const updated = await api.put(`/api/posts/${editingEvent}`, updatedEvent); // PUT request to save updated event details
             // const updatePost
-            const { id, event_title, event_info, } = updatedEvent;
+            const { id, event_title, event_info, commitment_type, skills, address, city, state, zip, event_date, event_time, volunteers_needed} = updatedEvent;
             console.log(id,updatedEvent );
-            const [updatedPost, error] = await updatePost({id, event_title, event_info,});
+            const [updatedPost, error] = await updatePost({id, event_title, event_info, commitment_type, skills, address, city, state, zip, event_date, event_time, volunteers_needed});
             console.log("UPDATED",updatedPost);
             if (error) return setErrorText(error.message);
             // setEvents(events.map((event) => (event.id === editingEvent ? updated : event))); // Replace the updated event in the state
@@ -106,6 +106,32 @@ export default function EventPage() {
                                         value={updatedEvent.event_info}
                                         onChange={(e) => setUpdatedEvent({ ...updatedEvent, event_info: e.target.value })}
                                     />
+                                    <textarea
+                                        value={updatedEvent.commitment_type}
+                                        onChange={(e) => setUpdatedEvent({ ...updatedEvent, commitment_type: e.target.value })}
+                                    />
+                                    <textarea
+                                        value={updatedEvent.skills}
+                                        onChange={(e) => setUpdatedEvent({ ...updatedEvent, skills: e.target.value })}
+                                    />
+                                    <textarea
+                                        value={updatedEvent.address}
+                                        onChange={(e) => setUpdatedEvent({ ...updatedEvent, address: e.target.value })}
+                                    />
+                                    <textarea
+                                        value={updatedEvent.event_date}
+                                        onChange={(e) => setUpdatedEvent({ ...updatedEvent, event_date: e.target.value })}
+                                    />
+
+                                    <textarea
+                                        value={updatedEvent.event_time}
+                                        onChange={(e) => setUpdatedEvent({ ...updatedEvent, event_time: e.target.value })}
+                                    />
+
+                                    <textarea
+                                        value={updatedEvent.volunteers_needed}
+                                        onChange={(e) => setUpdatedEvent({ ...updatedEvent, volunteers_needed: e.target.value })}
+                                    />
 
                                     <button onClick={savePost}>Save</button>
                                     <button onClick={() => setEditingEvent(null)}>Cancel</button>
@@ -114,18 +140,33 @@ export default function EventPage() {
                                 <div className="event-content">
                                     <h2 className="event-title">{event.event_title}</h2>
 
-                                    <label><b>Post Title:</b></label>
+                                    <label><b>Event Info:</b></label>
                                     <p className="event-description">{event.event_info}</p>
 
-                                    <label><b>caption:</b></label>
+                                    <label><b>Commitment Type:</b></label>
+                                    <p className="commitment-type">{event.commitment_type}</p>
+
+                                    <label><b>Skills Needed:</b></label>
                                     <p className="skills">{event.skills}</p>
+
+                                    <label><b>Address:</b></label>
+                                    <p className="address">{event.address}</p>
+
+                                    <label><b>Event Date:</b></label>
+                                    <p className="event-date">{event.event_date}</p>
+
+                                    <label><b>Event Time:</b></label>
+                                    <p className="event-time">{event.event_time}</p>
+
+                                    <label><b>Volunteers Needed:</b></label>
+                                    <p className="volunteers-needed">{event.volunteers_needed}</p>
 
                                     <button onClick={() => editPost(event)}>Edit</button>
                                     <button onClick={() => handleDeletePost(event.id)}>Delete</button>
 
                                     <a rel="noopener noreferrer" className="event-link">
                                         <div style={{ display: 'flex', justifyContent: 'center' }}>
-                                            <button className="event-button">LIKE</button>
+                                            <button className="event-button">RSVP</button>
                                         </div>
                                     </a>
                                 </div>
