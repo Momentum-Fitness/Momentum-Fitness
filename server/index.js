@@ -72,7 +72,6 @@ app.post('/api/volunteers', volunteerControllers.addVolunteer);
 // Pos Routes
 ///////////////////////////////
 
-app.post('/api/posts', postControllers.addPost);
 app.post('/api/posts', postControllers.addPost);  
 app.get('/api/posts', postControllers.getPosts);
 app.patch('/api/posts/:id',postControllers.updatePost)

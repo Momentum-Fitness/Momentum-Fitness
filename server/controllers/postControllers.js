@@ -20,9 +20,10 @@ exports.getPosts = async (req, res) => {
 exports.updatePost = async (req,res) => {
 try{
     const id =  Number(req.params.id);
+    console.log(id)
     console.log("REQ BODY", req.body); 
-    const { event_title, event_info,  } = req.body;
-    const posData = await Post.updatePost(event_title, event_info);
+    const { event_title, event_info } = req.body;
+    const posData = await Post.updatePost(event_title, event_info,id);
     res.send(posData);
 
 } catch (err) {

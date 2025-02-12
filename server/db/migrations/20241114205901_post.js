@@ -6,8 +6,8 @@ exports.up = function(knex) {
     return knex.schema.createTable( 'post', (table)  => {
 
         table.increments();
-        table.string ('event_title')
-        table.string ('event_info')
+        table.text ('event_title')
+        table.text ('event_info')
         
         })
 };

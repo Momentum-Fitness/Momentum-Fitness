@@ -22,11 +22,12 @@ export default function NewsPage() {
       imageUrl: image
 
     },
+
     // {
-    //   title: '',
-    //   description: ''
-    //   // imageUrl: 'https://',
-    // },
+    //   title: 'Calisthenics Routtine',
+    //   description: 'n   njkj'
+    //   imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXCRUt1Bv2U7GzRuqq06kf-eNRYJd3O4ciRQ&s'
+    // }
 
   ];
 

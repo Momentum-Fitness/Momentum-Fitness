@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import logo from "../Assets/logo.png";
-import { updatePost,deletePost } from '../adapters/Post-adaptors';
+import logo from "../Assets/arms.jpeg";
+import { updatePost, deletePost } from '../adapters/Post-adaptors';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -54,7 +54,7 @@ export default function EventPage() {
 
         try {
             // await api.delete(`/api/posts/${id}`);
-            const [deletedPost,error] = await deletePost(id)
+            const [deletedPost, error] = await deletePost(id)
             // setEvents(events.filter((event) => event.id !== id)); // Remove deleted event from state 
             // navigate(`/event-feed`);
             window.location.reload();
@@ -62,7 +62,7 @@ export default function EventPage() {
             console.error('Error deleting post:', err);
         }
     };
-    
+
 
     const editPost = (event) => {
         setEditingEvent(event.id);
@@ -74,13 +74,13 @@ export default function EventPage() {
             // const updated = await api.put(`/api/posts/${editingEvent}`, updatedEvent); // PUT request to save updated event details
             // const updatePost
             const { id, event_title, event_info, } = updatedEvent;
-            console.log(id,updatedEvent );
-            const [updatedPost, error] = await updatePost({id, event_title, event_info,});
-            console.log("UPDATED",updatedPost);
+            console.log(id, updatedEvent);
+            const [updatedPost, error] = await updatePost({ id, event_title, event_info });
+            console.log("UPDATED", updatedPost);
             if (error) return setErrorText(error.message);
             // setEvents(events.map((event) => (event.id === editingEvent ? updated : event))); // Replace the updated event in the state
             // setEditingEvent(null);
-                         navigate(`/event-feed`);
+            navigate(`/event-feed`);
 
         } catch (err) {
             console.error('Error updating post:', err);
@@ -90,7 +90,7 @@ export default function EventPage() {
 
     return (
         <div className="page-container">
-            <h1 className="heading">GET INVOLVED!</h1>
+            <h1 className="heading">Post Workout!</h1>
             <div className="events-container">
                 {events.length > 0 ? (
                     events.map((event, index) => (
@@ -114,11 +114,13 @@ export default function EventPage() {
                                 <div className="event-content">
                                     <h2 className="event-title">{event.event_title}</h2>
 
-                                    <label><b>Post Title:</b></label>
-                                    <p className="event-description">{event.event_info}</p>
+                                    {/* <label><b>Post Title:</b></label>
+                                    <p className="event-title">{event.event_title}</p> */}
+
+                                    <img src={logo} alt="Logo" style={{ height: 'auto', width: "400px" }} />
 
                                     <label><b>caption:</b></label>
-                                    <p className="skills">{event.skills}</p>
+                                    <p className="event-description">{event.event_info}</p>
 
                                     <button onClick={() => editPost(event)}>Edit</button>
                                     <button onClick={() => handleDeletePost(event.id)}>Delete</button>
@@ -130,7 +132,6 @@ export default function EventPage() {
                                     </a>
                                 </div>
                             )}
-                            <img src={logo} alt="Logo" style={{ height: 'auto', width: "400px" }} />
                         </div>
                     ))
                 ) : (

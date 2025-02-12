@@ -4,8 +4,8 @@ import { fetchHandler, getPostOptions, getPatchOptions,deleteOptions } from "../
 
 const baseUrl = '/api/posts';
 
-export const createPost = async ({ event_title, event_info,  }) => {
-  return fetchHandler(baseUrl, getPostOptions({ event_title, event_info, }))
+export const createPost = async ({ event_title, event_info  }) => {
+  return fetchHandler(baseUrl, getPostOptions({ event_title, event_info}))
 };
 
 export const updatePost = async ({id, event_title, event_info, }) => {

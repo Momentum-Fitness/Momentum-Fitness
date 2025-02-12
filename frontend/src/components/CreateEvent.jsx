@@ -22,7 +22,7 @@ const CreateEvent = ({ }) => {
 
     });
 
-    const [post, error] = await createPost({ event_title, event_info, });
+    const [post, error] = await createPost({ event_title, event_info });
     navigate(`/event-feed`);
 
     if (error) return setErrorText(error.message);

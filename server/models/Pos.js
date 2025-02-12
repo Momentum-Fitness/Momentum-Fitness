@@ -2,17 +2,17 @@ const knex = require('../db/knex');
 
 class Post {
 
-    static async create(event_title, event_info, id, ) {
-        const query = `INSERT INTO post (id,event_title, event_info)
-        VALUES (?,?,)? RETURNING *`;
-        const result = await knex.raw(query, [event_title, event_info, id,]);
+    static async create(event_title, event_info ) {
+        const query = `INSERT INTO post (event_title, event_info)
+        VALUES (?,?) RETURNING *`;
+        const result = await knex.raw(query, [event_title, event_info]);
        return result.rows[0];
     
     }
 
     static async updatePost (event_title, event_info,id) {
         const query = `UPDATE post
-        SET event_title = ?,event_info = ?, id = ?
+        SET event_title = ?, event_info = ?
         WHERE id = ?
         RETURNING *;`;
         const result = await knex.raw(query, [event_title, event_info,id]);
@@ -22,7 +22,7 @@ class Post {
     
 
     static async getAll() {
-        const query = `SELECT * FROM post ORDER BY event_date DESC`; 
+        const query = `SELECT * FROM post;`; 
         const result = await knex.raw(query);
         return result.rows;
     }
