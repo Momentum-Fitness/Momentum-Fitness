@@ -5,7 +5,12 @@ export default function Abdominal() {
         <div className="Chest">
             <h1 align="center">
                 Abdominal Muscles
-            </h1>
+            </h1>  
+                      <img
+                src="https://getrealfitnessblog.wordpress.com/wp-content/uploads/2013/11/abdominals.jpg"
+                style={{ width: '100%', height: 'auto' }}
+            />
+
             <p align="center">
                 The abdominal muscles, or abs, are essential for core stability, posture, and functional strength.
 
@@ -32,10 +37,6 @@ Hanging leg/ knee raise
 
             </p>
 
-            <img
-                src="https://getrealfitnessblog.wordpress.com/wp-content/uploads/2013/11/abdominals.jpg"
-                style={{ width: '100%', height: 'auto' }}
-            />
         </div>
 
 
