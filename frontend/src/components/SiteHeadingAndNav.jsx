@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import CurrentUserContext from "../contexts/current-user-context";
 import logo from "../Assets/logo.png"
+import { Link } from "react-router-dom";
 
 export default function SiteHeadingAndNav() {
   const { currentUser } = useContext(CurrentUserContext);
@@ -22,10 +23,11 @@ export default function SiteHeadingAndNav() {
         {
           currentUser
             ? <>
-              <li><NavLink to='/event-feed' end={true}>Upper Body </NavLink></li>
-              <li><NavLink to='/event-feed' end={true}>Lower Body</NavLink></li>
+              <li><NavLink to='/' end={true}>Upper Body </NavLink></li>
+              <li><NavLink to='/' end={true}>Lower Body</NavLink></li>
+              <li><NavLink to='/event-feed' end={true}>Preview post</NavLink></li>
               <li><NavLink to='/news' end={true}> Post Workout</NavLink></li>
-              <li><NavLink to='/about'> About Us</NavLink></li>  
+              <li><Link to='/AboutUsPage'> About Us</Link></li>  
               <li><NavLink to='/create-event' end={true}>Create Post</NavLink></li>
               <li><NavLink to='/users' end={true}>Users</NavLink></li>
               <li><NavLink to={`/users/${currentUser.id}`}>{currentUser.username}</NavLink></li>

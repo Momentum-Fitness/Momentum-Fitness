@@ -117,17 +117,21 @@ export default function EventPage() {
                                     {/* <label><b>Post Title:</b></label>
                                     <p className="event-title">{event.event_title}</p> */}
 
+
                                     <img src={logo} alt="Logo" style={{ height: 'auto', width: "400px" }} />
 
-                                    <label><b>caption:</b></label>
+                                    <label><b>Caption:</b></label>
                                     <p className="event-description">{event.event_info}</p>
 
-                                    <button onClick={() => editPost(event)}>Edit</button>
-                                    <button onClick={() => handleDeletePost(event.id)}>Delete</button>
 
                                     <a rel="noopener noreferrer" className="event-link">
                                         <div style={{ display: 'flex', justifyContent: 'center' }}>
-                                            <button className="event-button">LIKE</button>
+                                            <button className="event-button">LIKE</button>  
+                                            
+
+                                          <button onClick={() => editPost(event)}>Edit</button>
+                                    <button onClick={() => handleDeletePost(event.id)}>Delete</button>
+
                                         </div>
                                     </a>
                                 </div>
