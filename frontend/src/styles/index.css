@@ -1,17 +1,24 @@
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   margin: 0;
-  /* background: #000000; */
+  background: linear-gradient(to bottom, #ffffff, #000000);
 }
+
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
 
 input,
 label {
   display: block;
 }
 
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+
 input {
   margin-bottom: 1rem;
 }
+
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+
 
 header {
   display: flex;
@@ -23,6 +30,7 @@ header {
 
 }
 
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
 
 #logo {
   font-size: 1.5rem;
@@ -30,6 +38,8 @@ header {
   text-decoration: none;
   color: #FFF;
 }
+
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
 
 nav ul {
   display: flex;
@@ -40,10 +50,14 @@ nav ul {
 
 }
 
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+
 nav a {
   display: block;
   color: #FFF;
 }
+
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
 
 /* forms */
 form {
@@ -60,6 +74,7 @@ form {
 
 
 
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
 
 
 
@@ -68,6 +83,9 @@ form {
   font-weight: bold;
   font-style: italic;
 }
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
 
 /* Footer */
 .footer {
@@ -118,6 +136,8 @@ form {
   text-decoration: underline;
 }
 
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+
 /* NewsPage*/
 .page-container {
   padding: 20px;
@@ -141,6 +161,7 @@ form {
 }
 
 .article-card {
+  background-color: #f8f8fa;
   display: flex;
   align-items: center;
   border: 1px solid #ddd;
@@ -180,7 +201,7 @@ form {
 
 
 
-/* -------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
 
 
 /* Event Feed */
@@ -269,6 +290,8 @@ form {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+
 
 /* Dropdown Styling */
 .dropdown {
@@ -305,4 +328,151 @@ form {
   color: black;
   font-size: 14px;
   display: block;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+
+
+/* UpperBody styling */
+.upper-body-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #000000, #ffffff);
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+  font-family: "Arial", sans-serif;
+}
+
+/* Header styling */
+.header h1 {
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.header h2 {
+  font-size: 18px;
+  font-weight: 300;
+  color: #cbd5e1;
+}
+
+/* Muscle grid layout */
+.muscle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+/* Individual muscle card */
+.muscle-card {
+  background: #000000;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 236, 8, 0.42);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.muscle-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(17, 255, 0, 0.694);
+}
+
+/* Image styling */
+.muscle-image {
+  width: 420px;
+  height: 172px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Text styling */
+.muscle-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 15px;
+  color: #07d700;
+}
+
+.muscle-description {
+  font-size: 14px;
+  color: #cbd5e1;
+  margin-top: 8px;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+
+
+/* LowerBody styling */
+.lower-body-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #000000, #ffffff);
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+  font-family: "Arial", sans-serif;
+}
+
+/* Header styling */
+.header h1 {
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.header h2 {
+  font-size: 18px;
+  font-weight: 300;
+  color: #cbd5e1;
+}
+
+/* Muscle grid layout */
+.muscle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+/* Individual muscle card */
+.muscle-card {
+  background: #2d3748;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.muscle-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(255, 215, 0, 0.2);
+}
+
+/* Image styling */
+.muscle-image {
+  width: 420px;
+  height: 172px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Text styling */
+.muscle-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 15px;
+  color: #07d700;
+}
+
+.muscle-description {
+  font-size: 14px;
+  color: #cbd5e1;
+  margin-top: 8px;
 }
