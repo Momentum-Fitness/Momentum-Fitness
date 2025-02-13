@@ -27,6 +27,7 @@ header {
   padding: 0.5rem 1rem;
   background: #000000;
   color: #07d700;
+  text-decoration-color: #07d700;
 
 }
 
@@ -475,4 +476,90 @@ form {
   font-size: 14px;
   color: #cbd5e1;
   margin-top: 8px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* Page Container */
+.p-6 {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.text-center {
+  text-align: center;
+}
+
+/* Image Styling */
+img {
+  width: 420px;
+  height: 172px;
+  object-fit: cover;
+  display: block;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Table Styling */
+.table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.min-w-full {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #e6f7ff;
+}
+
+/* Input Fields Styling */
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+  width: 90%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
