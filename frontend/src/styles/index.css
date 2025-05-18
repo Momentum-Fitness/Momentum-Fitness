@@ -734,3 +734,76 @@ form h2 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
 }
+
+/* Calendar Styles */
+.workout-calendar {
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 2rem 0;
+}
+
+.workout-calendar .fc {
+  font-family: 'Poppins', sans-serif;
+}
+
+.workout-calendar .fc-toolbar-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem !important;
+}
+
+.workout-calendar .fc-button {
+  background-color: #04a214 !important;
+  border-color: #04a214 !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+
+.workout-calendar .fc-button:hover {
+  background-color: #038510 !important;
+  border-color: #038510 !important;
+}
+
+.workout-calendar .fc-day-today {
+  background-color: rgba(7, 215, 0, 0.1) !important;
+}
+
+.workout-calendar .fc-event {
+  border-radius: 4px;
+  padding: 2px 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.workout-calendar .fc-event:hover {
+  transform: scale(1.02);
+}
+
+.workout-calendar .fc-daygrid-day:hover {
+  background-color: rgba(7, 215, 0, 0.05);
+}
+
+/* Modal Form Styles */
+.workout-form input[type="text"],
+.workout-form input[type="number"],
+.workout-form textarea {
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.2s;
+}
+
+.workout-form input[type="text"]:focus,
+.workout-form input[type="number"]:focus,
+.workout-form textarea:focus {
+  border-color: #04a214;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(4, 162, 20, 0.2);
+}
+
+.workout-form label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: #333;
+}

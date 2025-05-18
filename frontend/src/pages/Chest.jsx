@@ -1,66 +1,34 @@
-// import React from 'react';
-
-// export default function Chest() {
-//   return (
-//     <div className="Chest">
-//       <h1 align="center">
-//         Chest 
-//       </h1>
-//       <p align="center">
-//       The Chest is primarily composed of the pectoralis major and pectoralis minor. This is a key muscle group for upper body strength and aesthetics. Chest exercises not only enhance pushing strength but also contribute to better posture and upper body balance.
-// To build your Pectorial muscle focus on 3 types of workouts 
-// Horizontal press 
-// /Incline press
-// /Isolation
-
-//  2 workouts per week is the sweet spot 3 max.
-
-
-// Workouts: 
-
-//  Horizontal: Bench press(dumbell or barbell) 
-// egular or weighted pushups 
-//  dips 
-
-// Incline: incline Bench press(dumbell or barbell)
-//  Decline pushups 
-
-// Isolation: chest fly with dumbbell or cables 
-
-
-//       </p>
-
-//       <img
-//         src="https://cdn.shopify.com/s/files/1/1214/5580/files/Muscle_Group_Chest.jpg?v=1601050935"
-//         style={{ width: '100%', height: 'auto' }}
-//       />
-//     </div>
-
-//   );
-// }
-
-import { useState } from "react";
+import React, { useState } from 'react';
+import WorkoutCalendar from '../components/WorkoutCalendar';
 
 export default function Chest() {
-  const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const [showHorizontalPress, setShowHorizontalPress] = useState(false);
+  const [showInclinePress, setShowInclinePress] = useState(false);
+  const [showIsolation, setShowIsolation] = useState(false);
 
-  // State for tracking workout data
-  const [workouts, setWorkouts] = useState(
-    daysOfWeek.map((day) => ({
-      day,
-      entries: Array(6).fill({ date: "", activity: "", time: "", distance: "", sets: "", reps: "", weight: "" })
-    }))
-  );
+  const buttonClasses = (isActive) => `
+        flex items-center justify-center
+        px-8 py-3.5
+        rounded-xl
+        font-semibold text-sm
+        transform transition-all duration-300
+        shadow-md hover:shadow-xl
+        ${isActive
+      ? 'bg-gradient-to-r from-green-600 to-green-700 text-white scale-105 shadow-green-200'
+      : 'bg-gradient-to-r from-white to-gray-50 text-green-700 border border-green-100 hover:border-green-200'}
+        hover:scale-105 active:scale-95
+        backdrop-blur-sm
+        relative
+        overflow-hidden
+        group
+    `;
 
-  // Handle input changes
-  const handleChange = (dayIndex, rowIndex, field, value) => {
-    const updatedWorkouts = [...workouts];
-    updatedWorkouts[dayIndex].entries[rowIndex] = {
-      ...updatedWorkouts[dayIndex].entries[rowIndex],
-      [field]: value
-    };
-    setWorkouts(updatedWorkouts);
-  };
+  const buttonSpanClasses = `
+        absolute inset-0 w-full h-full
+        bg-gradient-to-r from-green-600/20 to-transparent
+        transform transition-transform duration-300 ease-out
+        translate-x-full group-hover:translate-x-0
+    `;
 
   return (
     <div className="p-6">
@@ -68,16 +36,126 @@ export default function Chest() {
       <p className="text-center mt-4 max-w-2xl mx-auto text-gray-700">
         The chest is primarily composed of the pectoralis major and pectoralis minor. This key muscle group enhances pushing strength, posture, and upper body balance.
         <br /><br />
-        To build your pectoral muscles, focus on three types of exercises:
-        <br />
-        <strong>Horizontal Press:</strong> Bench press (dumbbell or barbell), regular or weighted push-ups, dips.
-        <br />
-        <strong>Incline Press:</strong> Incline bench press (dumbbell or barbell), decline push-ups.
-        <br />
-        <strong>Isolation:</strong> Chest fly with dumbbells or cables.
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
+          <button
+            onClick={() => setShowHorizontalPress(!showHorizontalPress)}
+            className={buttonClasses(showHorizontalPress)}
+          >
+            <span className={buttonSpanClasses}></span>
+            <span className="mr-2 text-lg">
+              {showHorizontalPress ? '−' : '+'}
+            </span>
+            <span className="relative z-10">
+              {showHorizontalPress ? 'Hide Horizontal Press' : 'Show Horizontal Press'}
+            </span>
+          </button>
+          <button
+            onClick={() => setShowInclinePress(!showInclinePress)}
+            className={buttonClasses(showInclinePress)}
+          >
+            <span className={buttonSpanClasses}></span>
+            <span className="mr-2 text-lg">
+              {showInclinePress ? '−' : '+'}
+            </span>
+            <span className="relative z-10">
+              {showInclinePress ? 'Hide Incline Press' : 'Show Incline Press'}
+            </span>
+          </button>
+          <button
+            onClick={() => setShowIsolation(!showIsolation)}
+            className={buttonClasses(showIsolation)}
+          >
+            <span className={buttonSpanClasses}></span>
+            <span className="mr-2 text-lg">
+              {showIsolation ? '−' : '+'}
+            </span>
+            <span className="relative z-10">
+              {showIsolation ? 'Hide Isolation' : 'Show Isolation'}
+            </span>
+          </button>
+        </div>
+
+        {showHorizontalPress && (
+          <div className="mt-4 p-6 bg-white rounded-lg shadow-lg border border-gray-100 transition-all duration-500 ease-in-out transform">
+            <div className="space-y-4">
+              <strong className="text-lg text-green-700 block border-b-2 border-green-100 pb-2">
+                Horizontal Press Exercises:
+              </strong>
+              <ul className="space-y-2 list-inside">
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Bench Press (Barbell)
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Bench Press (Dumbbell)
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Push-ups (Regular or Weighted)
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Dips
+                </li>
+              </ul>
+            </div>
+          </div>
+        )}
+
+        {showInclinePress && (
+          <div className="mt-4 p-6 bg-white rounded-lg shadow-lg border border-gray-100 transition-all duration-500 ease-in-out transform">
+            <div className="space-y-4">
+              <strong className="text-lg text-green-700 block border-b-2 border-green-100 pb-2">
+                Incline Press Exercises:
+              </strong>
+              <ul className="space-y-2 list-inside">
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Incline Bench Press (Barbell)
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Incline Bench Press (Dumbbell)
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Decline Push-ups
+                </li>
+              </ul>
+            </div>
+          </div>
+        )}
+
+        {showIsolation && (
+          <div className="mt-4 p-6 bg-white rounded-lg shadow-lg border border-gray-100 transition-all duration-500 ease-in-out transform">
+            <div className="space-y-4">
+              <strong className="text-lg text-green-700 block border-b-2 border-green-100 pb-2">
+                Isolation Exercises:
+              </strong>
+              <ul className="space-y-2 list-inside">
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Chest Fly (Dumbbell)
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Chest Fly (Cable)
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Pec Deck Machine
+                </li>
+              </ul>
+            </div>
+          </div>
+        )}
         <br /><br />
-        Recommended: 2 workouts per week, 3 max.
+        <div className="font-medium text-gray-800">
+          Recommended: 2 workouts per week, 3 max for optimal recovery.
+        </div>
       </p>
+
       <img
         src="https://cdn.shopify.com/s/files/1/1214/5580/files/Muscle_Group_Chest.jpg?v=1601050935"
         alt="Chest Workout"
@@ -87,62 +165,8 @@ export default function Chest() {
 
       {/* Workout Tracker Section */}
       <h2 className="text-center text-2xl font-bold mt-8 mb-4">Workout Tracker</h2>
-      <div className="overflow-x-auto">
-        <table className="min-w-full border-collapse border border-gray-300">
-          <thead>
-            <tr className="bg-gray-200">
-              <th className="border p-2">Day</th>
-              <th className="border p-2">Date</th>
-              <th className="border p-2">Activity</th>
-              <th className="border p-2">Time (min)</th>
-              <th className="border p-2">Distance (km/mi)</th>
-              <th className="border p-2">Sets</th>
-              <th className="border p-2">Reps</th>
-              <th className="border p-2">Weight (kg/lbs)</th>
-            </tr>
-          </thead>
-          <tbody>
-            {workouts.map((day, dayIndex) =>
-              day.entries.map((entry, rowIndex) => (
-                <tr key={`${dayIndex}-${rowIndex}`} className="border">
-                  {rowIndex === 0 && (
-                    <td className="border p-2 text-center font-bold bg-gray-100" rowSpan="6">
-                      {day.day}
-                    </td>
-                  )}
-                  <td className="border p-2">
-                    <input type="date" className="w-full p-1 border rounded" value={entry.date} 
-                      onChange={(e) => handleChange(dayIndex, rowIndex, "date", e.target.value)} />
-                  </td>
-                  <td className="border p-2">
-                    <input type="text" className="w-full p-1 border rounded" placeholder="Workout name"
-                      value={entry.activity} onChange={(e) => handleChange(dayIndex, rowIndex, "activity", e.target.value)} />
-                  </td>
-                  <td className="border p-2">
-                    <input type="number" className="w-full p-1 border rounded" placeholder="Minutes"
-                      value={entry.time} onChange={(e) => handleChange(dayIndex, rowIndex, "time", e.target.value)} />
-                  </td>
-                  <td className="border p-2">
-                    <input type="number" className="w-full p-1 border rounded" placeholder="Distance"
-                      value={entry.distance} onChange={(e) => handleChange(dayIndex, rowIndex, "distance", e.target.value)} />
-                  </td>
-                  <td className="border p-2">
-                    <input type="number" className="w-full p-1 border rounded" placeholder="Sets"
-                      value={entry.sets} onChange={(e) => handleChange(dayIndex, rowIndex, "sets", e.target.value)} />
-                  </td>
-                  <td className="border p-2">
-                    <input type="number" className="w-full p-1 border rounded" placeholder="Reps"
-                      value={entry.reps} onChange={(e) => handleChange(dayIndex, rowIndex, "reps", e.target.value)} />
-                  </td>
-                  <td className="border p-2">
-                    <input type="number" className="w-full p-1 border rounded" placeholder="Weight"
-                      value={entry.weight} onChange={(e) => handleChange(dayIndex, rowIndex, "weight", e.target.value)} />
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+      <div className="max-w-5xl mx-auto">
+        <WorkoutCalendar muscleGroup="chest" />
       </div>
     </div>
   );

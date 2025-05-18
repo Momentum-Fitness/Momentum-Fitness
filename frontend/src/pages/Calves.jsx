@@ -1,90 +1,163 @@
-// import React from 'react';
-
-// export default function Calves() {
-//   return (
-//     <div className="Chest">
-//       <h1 align="center">
-//       Calves: 
-//       </h1>
-//       <p align="center">
-//       The calves are located at the back of your lower legs and consist of two main muscles:
-// Gastrocnemius: The larger, visible muscle responsible for explosive movements like jumping.
-// Soleus: A deeper muscle that supports endurance-based activities like walking or running.
-// Calf strength improves balance, stability, and athletic performance while reducing the risk of lower-body injuries.
-
-// Mostly consists of calf raises pick whatever variation works for you. Try 
-
-// Aim for 2 - 4 Workouts a week should be more than enough 6 times max if you really don't see any change consistency is key
-
-// Workouts:
-
-// Standing calf raise 
-// Seated calf raise 
-// Machine calf raise 
-// Leg press/ smith machine 
-
-
-//       </p>
-
-//       <img
-//         src="https://cdn.shopify.com/s/files/1/1214/5580/files/Muscle_Group_Chest.jpg?v=1601050935"
-//         style={{ width: '100%', height: 'auto' }}
-//       />
-//     </div>
-
-//   );
-// }
-
-
-import { useState } from "react";
+import React, { useState } from 'react';
+import WorkoutCalendar from '../components/WorkoutCalendar';
 
 export default function Calves() {
-  const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const [showGastrocnemius, setShowGastrocnemius] = useState(false);
+  const [showSoleus, setShowSoleus] = useState(false);
+  const [showVariations, setShowVariations] = useState(false);
 
-  // State for tracking workout data
-  const [workouts, setWorkouts] = useState(
-    daysOfWeek.map((day) => ({
-      day,
-      entries: Array(6).fill({ date: "", activity: "", time: "", distance: "", sets: "", reps: "", weight: "" })
-    }))
-  );
+  const buttonClasses = (isActive) => `
+        flex items-center justify-center
+        px-8 py-3.5
+        rounded-xl
+        font-semibold text-sm
+        transform transition-all duration-300
+        shadow-md hover:shadow-xl
+        ${isActive
+      ? 'bg-gradient-to-r from-green-600 to-green-700 text-white scale-105 shadow-green-200'
+      : 'bg-gradient-to-r from-white to-gray-50 text-green-700 border border-green-100 hover:border-green-200'}
+        hover:scale-105 active:scale-95
+        backdrop-blur-sm
+        relative
+        overflow-hidden
+        group
+    `;
 
-  // Handle input changes
-  const handleChange = (dayIndex, rowIndex, field, value) => {
-    const updatedWorkouts = [...workouts];
-    updatedWorkouts[dayIndex].entries[rowIndex] = {
-      ...updatedWorkouts[dayIndex].entries[rowIndex],
-      [field]: value
-    };
-    setWorkouts(updatedWorkouts);
-  };
+  const buttonSpanClasses = `
+        absolute inset-0 w-full h-full
+        bg-gradient-to-r from-green-600/20 to-transparent
+        transform transition-transform duration-300 ease-out
+        translate-x-full group-hover:translate-x-0
+    `;
 
   return (
     <div className="p-6">
       <h1 className="text-center text-3xl font-bold">Calves</h1>
       <p className="text-center mt-4 max-w-2xl mx-auto text-gray-700">
-        The calves are located at the back of your lower legs and consist of two main muscles:
+        The calves are located at the back of your lower legs and consist of two main muscles.
         <br /><br />
-        <strong>Gastrocnemius:</strong> The larger, visible muscle responsible for explosive movements like jumping.
-        <br />
-        <strong>Soleus:</strong> A deeper muscle that supports endurance-based activities like walking or running.
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
+          <button
+            onClick={() => setShowGastrocnemius(!showGastrocnemius)}
+            className={buttonClasses(showGastrocnemius)}
+          >
+            <span className={buttonSpanClasses}></span>
+            <span className="mr-2 text-lg">
+              {showGastrocnemius ? '−' : '+'}
+            </span>
+            <span className="relative z-10">
+              {showGastrocnemius ? 'Hide Gastrocnemius' : 'Show Gastrocnemius'}
+            </span>
+          </button>
+          <button
+            onClick={() => setShowSoleus(!showSoleus)}
+            className={buttonClasses(showSoleus)}
+          >
+            <span className={buttonSpanClasses}></span>
+            <span className="mr-2 text-lg">
+              {showSoleus ? '−' : '+'}
+            </span>
+            <span className="relative z-10">
+              {showSoleus ? 'Hide Soleus' : 'Show Soleus'}
+            </span>
+          </button>
+          <button
+            onClick={() => setShowVariations(!showVariations)}
+            className={buttonClasses(showVariations)}
+          >
+            <span className={buttonSpanClasses}></span>
+            <span className="mr-2 text-lg">
+              {showVariations ? '−' : '+'}
+            </span>
+            <span className="relative z-10">
+              {showVariations ? 'Hide Variations' : 'Show Variations'}
+            </span>
+          </button>
+        </div>
+
+        {showGastrocnemius && (
+          <div className="mt-4 p-6 bg-white rounded-lg shadow-lg border border-gray-100 transition-all duration-500 ease-in-out transform">
+            <div className="space-y-4">
+              <strong className="text-lg text-green-700 block border-b-2 border-green-100 pb-2">
+                Gastrocnemius Exercises:
+              </strong>
+              <p className="text-gray-600 mb-2">The larger, visible muscle responsible for explosive movements like jumping.</p>
+              <ul className="space-y-2 list-inside">
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Standing Calf Raises
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Jump Rope
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Box Jumps
+                </li>
+              </ul>
+            </div>
+          </div>
+        )}
+
+        {showSoleus && (
+          <div className="mt-4 p-6 bg-white rounded-lg shadow-lg border border-gray-100 transition-all duration-500 ease-in-out transform">
+            <div className="space-y-4">
+              <strong className="text-lg text-green-700 block border-b-2 border-green-100 pb-2">
+                Soleus Exercises:
+              </strong>
+              <p className="text-gray-600 mb-2">A deeper muscle that supports endurance-based activities like walking or running.</p>
+              <ul className="space-y-2 list-inside">
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Seated Calf Raises
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Single-Leg Calf Raises
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Eccentric Heel Drops
+                </li>
+              </ul>
+            </div>
+          </div>
+        )}
+
+        {showVariations && (
+          <div className="mt-4 p-6 bg-white rounded-lg shadow-lg border border-gray-100 transition-all duration-500 ease-in-out transform">
+            <div className="space-y-4">
+              <strong className="text-lg text-green-700 block border-b-2 border-green-100 pb-2">
+                Exercise Variations:
+              </strong>
+              <ul className="space-y-2 list-inside">
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Machine Calf Raises
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Smith Machine Calf Raises
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Leg Press Calf Raises
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Donkey Calf Raises
+                </li>
+              </ul>
+            </div>
+          </div>
+        )}
         <br /><br />
-        Calf strength improves balance, stability, and athletic performance while reducing the risk of lower-body injuries.
-        <br /><br />
-        Mostly consists of calf raises. Pick whatever variation works for you.
-        <br /><br />
-        <strong>Recommended:</strong> 2-4 workouts per week, up to 6 times max if needed for growth.
-        <br /><br />
-        <strong>Workouts:</strong>
-        <br />
-        - Standing calf raise
-        <br />
-        - Seated calf raise
-        <br />
-        - Machine calf raise
-        <br />
-        - Leg press/Smith machine
+        <div className="font-medium text-gray-800">
+          Recommended: 2-4 workouts per week, up to 6 times max if needed for growth.
+        </div>
       </p>
+
       <img
         src="https://images.squarespace-cdn.com/content/v1/53ec0c09e4b0eecc91fab644/1590456963791-MNZ3O9QOAF16HHVWF8NB/Thornleigh-Performance-Physiotherapy_Calf-anatomy.jpg"
         alt="Calves Workout"
@@ -94,64 +167,9 @@ export default function Calves() {
 
       {/* Workout Tracker Section */}
       <h2 className="text-center text-2xl font-bold mt-8 mb-4">Workout Tracker</h2>
-      <div className="overflow-x-auto">
-        <table className="min-w-full border-collapse border border-gray-300">
-          <thead>
-            <tr className="bg-gray-200">
-              <th className="border p-2">Day</th>
-              <th className="border p-2">Date</th>
-              <th className="border p-2">Activity</th>
-              <th className="border p-2">Time (min)</th>
-              <th className="border p-2">Distance (km/mi)</th>
-              <th className="border p-2">Sets</th>
-              <th className="border p-2">Reps</th>
-              <th className="border p-2">Weight (kg/lbs)</th>
-            </tr>
-          </thead>
-          <tbody>
-            {workouts.map((day, dayIndex) =>
-              day.entries.map((entry, rowIndex) => (
-                <tr key={`${dayIndex}-${rowIndex}`} className="border">
-                  {rowIndex === 0 && (
-                    <td className="border p-2 text-center font-bold bg-gray-100" rowSpan="6">
-                      {day.day}
-                    </td>
-                  )}
-                  <td className="border p-2">
-                    <input type="date" className="w-full p-1 border rounded" value={entry.date} 
-                      onChange={(e) => handleChange(dayIndex, rowIndex, "date", e.target.value)} />
-                  </td>
-                  <td className="border p-2">
-                    <input type="text" className="w-full p-1 border rounded" placeholder="Workout name"
-                      value={entry.activity} onChange={(e) => handleChange(dayIndex, rowIndex, "activity", e.target.value)} />
-                  </td>
-                  <td className="border p-2">
-                    <input type="number" className="w-full p-1 border rounded" placeholder="Minutes"
-                      value={entry.time} onChange={(e) => handleChange(dayIndex, rowIndex, "time", e.target.value)} />
-                  </td>
-                  <td className="border p-2">
-                    <input type="number" className="w-full p-1 border rounded" placeholder="Distance"
-                      value={entry.distance} onChange={(e) => handleChange(dayIndex, rowIndex, "distance", e.target.value)} />
-                  </td>
-                  <td className="border p-2">
-                    <input type="number" className="w-full p-1 border rounded" placeholder="Sets"
-                      value={entry.sets} onChange={(e) => handleChange(dayIndex, rowIndex, "sets", e.target.value)} />
-                  </td>
-                  <td className="border p-2">
-                    <input type="number" className="w-full p-1 border rounded" placeholder="Reps"
-                      value={entry.reps} onChange={(e) => handleChange(dayIndex, rowIndex, "reps", e.target.value)} />
-                  </td>
-                  <td className="border p-2">
-                    <input type="number" className="w-full p-1 border rounded" placeholder="Weight"
-                      value={entry.weight} onChange={(e) => handleChange(dayIndex, rowIndex, "weight", e.target.value)} />
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+      <div className="max-w-5xl mx-auto">
+        <WorkoutCalendar muscleGroup="calves" />
       </div>
     </div>
-
   );
 }

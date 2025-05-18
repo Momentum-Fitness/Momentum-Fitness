@@ -1,155 +1,147 @@
-// import React from 'react';
-
-// export default function Abdominal() {
-//     return (
-//         <div className="Chest">
-//             <h1 align="center">
-//                 Abdominal Muscles
-//             </h1>  
-//                       <img
-//                 src="https://getrealfitnessblog.wordpress.com/wp-content/uploads/2013/11/abdominals.jpg"
-//                 style={{ width: '100%', height: 'auto' }}
-//             />
-
-//             <p align="center">
-//                 The abdominal muscles, or abs, are essential for core stability, posture, and functional strength.
-
-//                 They consist of:
-//                 Rectus Abdominis: "Six-pack" muscles, responsible for flexing the spine.
-//                 Obliques: Side muscles aiding in rotation and side-bending.
-//                 Transverse Abdominis: Deep core muscles supporting posture and stabilizing the spine
-
-
-
-//                 Focus on the Upper and lower abs. To properly work these areas focus on 2 types of exercises. weighted for main exercises and unweighted secondary exercises
-
-//                 2-4 workouts a week
-
-//                 Workouts: 
-
-//                 Main upper abs 
-//                 (weighted): 
-// Machine cruch weighted situp 
-
-// Secondary lower abs 
-// (Notweighted):
-// Hanging leg/ knee raise 
-
-//             </p>
-
-//         </div>
-
-
-//     );
-// }
-
-
-
-import { useState } from "react";
+import React, { useState } from 'react';
+import WorkoutCalendar from '../components/WorkoutCalendar';
 
 export default function Abdominal() {
-    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const [showMuscleInfo, setShowMuscleInfo] = useState(false);
+    const [showExercises, setShowExercises] = useState(false);
 
-    // State for tracking workout data
-    const [workouts, setWorkouts] = useState(
-        daysOfWeek.map((day) => ({
-            day,
-            entries: Array(6).fill({ date: "", activity: "", time: "", distance: "", sets: "", reps: "", weight: "" })
-        }))
-    );
+    const buttonClasses = (isActive) => `
+        flex items-center justify-center
+        px-8 py-3.5
+        rounded-xl
+        font-semibold text-sm
+        transform transition-all duration-300
+        shadow-md hover:shadow-xl
+        ${isActive
+            ? 'bg-gradient-to-r from-green-600 to-green-700 text-white scale-105 shadow-green-200'
+            : 'bg-gradient-to-r from-white to-gray-50 text-green-700 border border-green-100 hover:border-green-200'}
+        hover:scale-105 active:scale-95
+        backdrop-blur-sm
+        relative
+        overflow-hidden
+        group
+    `;
 
-    // Handle input changes
-    const handleChange = (dayIndex, rowIndex, field, value) => {
-        const updatedWorkouts = [...workouts];
-        updatedWorkouts[dayIndex].entries[rowIndex] = {
-            ...updatedWorkouts[dayIndex].entries[rowIndex],
-            [field]: value
-        };
-        setWorkouts(updatedWorkouts);
-    };
+    const buttonSpanClasses = `
+        absolute inset-0 w-full h-full
+        bg-gradient-to-r from-green-600/20 to-transparent
+        transform transition-transform duration-300 ease-out
+        translate-x-full group-hover:translate-x-0
+    `;
 
     return (
         <div className="p-6">
             <h1 className="text-center text-3xl font-bold">Abdominal Muscles</h1>
-            <img
-                src="https://getrealfitnessblog.wordpress.com/wp-content/uploads/2013/11/abdominals.jpg"
-                className="mx-auto mt-4 rounded-lg shadow-lg"
-                style={{ width: '100%', maxWidth: '500px', height: 'auto' }}
-                alt="Abdominal Muscles"
-            />
-            <p className="mt-4 max-w-2xl mx-auto text-gray-700 text-center">
-                The abdominal muscles, or abs, are essential for core stability, posture, and functional strength.
+            <p className="text-center mt-4 max-w-2xl mx-auto text-gray-700">
+                The abdominal muscles are essential for core strength, stability, and functional strength.
                 <br /><br />
-                <strong>They consist of:</strong>
-                <br />Rectus Abdominis: "Six-pack" muscles, responsible for flexing the spine.
-                <br />Obliques: Side muscles aiding in rotation and side-bending.
-                <br />Transverse Abdominis: Deep core muscles supporting posture and stabilizing the spine.
+                <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
+                    <button
+                        onClick={() => setShowMuscleInfo(!showMuscleInfo)}
+                        className={buttonClasses(showMuscleInfo)}
+                    >
+                        <span className={buttonSpanClasses}></span>
+                        <span className="mr-2 text-lg">
+                            {showMuscleInfo ? '−' : '+'}
+                        </span>
+                        <span className="relative z-10">
+                            {showMuscleInfo ? 'Hide Muscle Groups' : 'Show Muscle Groups'}
+                        </span>
+                    </button>
+                    <button
+                        onClick={() => setShowExercises(!showExercises)}
+                        className={buttonClasses(showExercises)}
+                    >
+                        <span className={buttonSpanClasses}></span>
+                        <span className="mr-2 text-lg">
+                            {showExercises ? '−' : '+'}
+                        </span>
+                        <span className="relative z-10">
+                            {showExercises ? 'Hide Exercises' : 'Show Exercises'}
+                        </span>
+                    </button>
+                </div>
+                {showMuscleInfo && (
+                    <div className="mt-4 p-6 bg-white rounded-lg shadow-lg border border-gray-100 transition-all duration-500 ease-in-out transform">
+                        <div className="space-y-4">
+                            <div className="flex items-center space-x-3">
+                                <strong className="text-green-700">Rectus Abdominis:</strong>
+                                <span>The "six-pack" muscles, responsible for trunk flexion.</span>
+                            </div>
+                            <div className="flex items-center space-x-3">
+                                <strong className="text-green-700">Obliques:</strong>
+                                <span>Side muscles that aid in rotation and side bending.</span>
+                            </div>
+                            <div className="flex items-center space-x-3">
+                                <strong className="text-green-700">Transverse Abdominis:</strong>
+                                <span>Deep core muscle that stabilizes the spine.</span>
+                            </div>
+                        </div>
+                    </div>
+                )}
+                {showExercises && (
+                    <div className="mt-4 p-6 bg-white rounded-lg shadow-lg border border-gray-100 transition-all duration-500 ease-in-out transform">
+                        <div className="grid md:grid-cols-2 gap-6">
+                            <div className="space-y-4">
+
+
+                                <strong className="text-lg text-green-700 block border-b-2 border-green-100 pb-2">
+                                    Upper Ab Exercises:
+                                </strong>
+                                <ul className="space-y-2 list-inside">
+                                    <li className="flex items-center">
+                                        <span className="text-green-600 mr-2">•</span>
+                                        Crunches and sit-ups
+                                    </li>
+                                    <li className="flex items-center">
+                                        <span className="text-green-600 mr-2">•</span>
+                                        Russian twists for obliques
+                                    </li>
+                                    <li className="flex items-center">
+                                        <span className="text-green-600 mr-2">•</span>
+                                        Planks for overall core stability
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="space-y-4">
+                                <strong className="text-lg text-green-700 block border-b-2 border-green-100 pb-2">
+                                    Lower Ab Exercises:
+                                </strong>
+                                <ul className="space-y-2 list-inside">
+                                    <li className="flex items-center">
+                                        <span className="text-green-600 mr-2">•</span>
+                                        Leg raises
+                                    </li>
+                                    <li className="flex items-center">
+                                        <span className="text-green-600 mr-2">•</span>
+                                        Reverse crunches
+                                    </li>
+                                    <li className="flex items-center">
+                                        <span className="text-green-600 mr-2">•</span>
+                                        Hanging knee raises
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                )}
                 <br /><br />
-                Focus on the Upper and Lower Abs with 2-4 workouts a week. Weighted exercises for main workouts and unweighted for secondary exercises.
-                <br /><br />
-                <strong>Main Upper Abs (Weighted):</strong> Machine Crunch, Weighted Sit-up.
-                <br />
-                <strong>Secondary Lower Abs (Unweighted):</strong> Hanging Leg/Knee Raise.
+                <div className="font-medium text-gray-800">
+                    Recommended: 2-3 workouts per week, with proper rest between sessions.
+                </div>
             </p>
 
+            <img
+                src="https://getrealfitnessblog.wordpress.com/wp-content/uploads/2013/11/abdominals.jpg"
+                alt="Abdominal Muscles"
+                className="mx-auto mt-4 rounded-lg shadow-lg"
+                style={{ width: '100%', maxWidth: '500px', height: 'auto' }}
+            />
+
             {/* Workout Tracker Section */}
-            <h2 className="text-center text-2xl font-bold mt-8">Workout Tracker</h2>
-            <div className="overflow-x-auto mt-4">
-                <table className="min-w-full border-collapse border border-gray-300">
-                    <thead>
-                        <tr className="bg-gray-200">
-                            <th className="border p-2">Day</th>
-                            <th className="border p-2">Date</th>
-                            <th className="border p-2">Activity</th>
-                            <th className="border p-2">Time (min)</th>
-                            <th className="border p-2">Distance (km/mi)</th>
-                            <th className="border p-2">Sets</th>
-                            <th className="border p-2">Reps</th>
-                            <th className="border p-2">Weight (kg/lbs)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {workouts.map((day, dayIndex) =>
-                            day.entries.map((entry, rowIndex) => (
-                                <tr key={`${dayIndex}-${rowIndex}`} className="border">
-                                    {rowIndex === 0 && (
-                                        <td className="border p-2 text-center font-bold bg-gray-100" rowSpan="6">
-                                            {day.day}
-                                        </td>
-                                    )}
-                                    <td className="border p-2">
-                                        <input type="date" className="w-full p-1 border rounded" value={entry.date} 
-                                            onChange={(e) => handleChange(dayIndex, rowIndex, "date", e.target.value)} />
-                                    </td>
-                                    <td className="border p-2">
-                                        <input type="text" className="w-full p-1 border rounded" placeholder="Workout name"
-                                            value={entry.activity} onChange={(e) => handleChange(dayIndex, rowIndex, "activity", e.target.value)} />
-                                    </td>
-                                    <td className="border p-2">
-                                        <input type="number" className="w-full p-1 border rounded" placeholder="Minutes"
-                                            value={entry.time} onChange={(e) => handleChange(dayIndex, rowIndex, "time", e.target.value)} />
-                                    </td>
-                                    <td className="border p-2">
-                                        <input type="number" className="w-full p-1 border rounded" placeholder="Distance"
-                                            value={entry.distance} onChange={(e) => handleChange(dayIndex, rowIndex, "distance", e.target.value)} />
-                                    </td>
-                                    <td className="border p-2">
-                                        <input type="number" className="w-full p-1 border rounded" placeholder="Sets"
-                                            value={entry.sets} onChange={(e) => handleChange(dayIndex, rowIndex, "sets", e.target.value)} />
-                                    </td>
-                                    <td className="border p-2">
-                                        <input type="number" className="w-full p-1 border rounded" placeholder="Reps"
-                                            value={entry.reps} onChange={(e) => handleChange(dayIndex, rowIndex, "reps", e.target.value)} />
-                                    </td>
-                                    <td className="border p-2">
-                                        <input type="number" className="w-full p-1 border rounded" placeholder="Weight"
-                                            value={entry.weight} onChange={(e) => handleChange(dayIndex, rowIndex, "weight", e.target.value)} />
-                                    </td>
-                                </tr>
-                            ))
-                        )}
-                    </tbody>
-                </table>
+            <h2 className="text-center text-2xl font-bold mt-8 mb-4">Workout Tracker</h2>
+            <div className="max-w-5xl mx-auto">
+                <WorkoutCalendar muscleGroup="abdominal" />
             </div>
         </div>
     );

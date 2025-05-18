@@ -42,7 +42,7 @@ export default function AboutUsPage() {
                             marginTop: '1rem',
                             fontFamily: "'Montserrat', sans-serif",
                             fontWeight: '600'
-                        }}>Ethan James</p>
+                        }}>Creator: Ethan James </p>
                         <div style={{
                             display: 'flex',
                             justifyContent: 'center',
@@ -82,7 +82,7 @@ export default function AboutUsPage() {
                     fontWeight: '500',
                     letterSpacing: '0.2px'
                 }}>
-                    At Momentum Fitness, we Firmly believe that each of us has the power to reach our fitness goals!
+                    At Momentum Fitness, we Firmly believe that each of us has the power to Build Momentum & reach their fitness goals!
                 </div>
 
                 <div className="about-sections" style={{
@@ -121,7 +121,7 @@ export default function AboutUsPage() {
                             letterSpacing: '-0.3px'
                         }}>Our Approach</h2>
                         <p>
-                            Through our webpage, we educate and inspire users to reach their goals. We strive to be a reliable source of knowledge, offering:
+                            Through our application, we educate and inspire users to reach their goals. We strive to be a reliable source of knowledge, offering:
                             <ul style={{ marginTop: '0.5rem', paddingLeft: '1.5rem' }}>
                                 <li>Practical workout tips and guidelines</li>
                                 <li>Insights into effective training techniques</li>

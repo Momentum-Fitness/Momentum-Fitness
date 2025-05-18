@@ -1,162 +1,197 @@
-// import React from 'react';
+import React, { useState } from 'react';
+import WorkoutCalendar from '../components/WorkoutCalendar';
 
-// export default function Arms() {
-//   return (
-//     <div className="Chest">
-//       <h1 align="center">
-//         Arms 
-//       </h1>
-//       <p align="center">
-//       Your Arms include biceps, triceps, and forearms, which are essential for pushing, pulling, and grip strength. Training these muscles improves both aesthetics and functional performance.
+export default function Arms() {
+  const [showBiceps, setShowBiceps] = useState(false);
+  const [showTriceps, setShowTriceps] = useState(false);
+  const [showForearms, setShowForearms] = useState(false);
 
-// For biceps focus on curls. The triceps require you to focus on the lateral head and long head. For the forearms do wrist curls with light weights 
+  const buttonClasses = (isActive) => `
+        flex items-center justify-center
+        px-8 py-3.5
+        rounded-xl
+        font-semibold text-sm
+        transform transition-all duration-300
+        shadow-md hover:shadow-xl
+        ${isActive
+      ? 'bg-gradient-to-r from-green-600 to-green-700 text-white scale-105 shadow-green-200'
+      : 'bg-gradient-to-r from-white to-gray-50 text-green-700 border border-green-100 hover:border-green-200'}
+        hover:scale-105 active:scale-95
+        backdrop-blur-sm
+        relative
+        overflow-hidden
+        group
+    `;
 
-// 2-4 workouts a week
-
-
-// Workouts:
-
-// Biceps(Curls): 
-// Barbell or dumbbell curl 
-// Hammer curl and overhand grip curl  
-// Focus curl 
-
-// Triceps:
-// Lateral:Cable pull down/ diamond pushups/dips/close grip bench press
-// Long head: Overhead extension
-// Over head plate extension 
-
-// Forearm: 
-// Wrist curl (dumbbell/barbell/cable)
-// Rice Bucket training
-
-//       </p>
-
-//       <img
-//         src="https://i.pinimg.com/474x/af/6e/e2/af6ee28277203710c59bb1d9e0f1cbfd.jpg"
-//         style={{ width: '100%', height: 'auto' }}
-//       />
-//     </div>
-
-
-
-//   );
-  
-//   <div>
-
-
-// </div>
-// }
-
-
-
-
-
-import { useState } from "react";
-
-export default function ArmsWorkoutTracker() {
-  const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
-  // State for tracking workout data
-  const [workouts, setWorkouts] = useState(
-    daysOfWeek.map((day) => ({
-      day,
-      entries: Array(6).fill({ date: "", activity: "", time: "", distance: "", sets: "", reps: "", weight: "" })
-    }))
-  );
-
-  // Handle input changes
-  const handleChange = (dayIndex, rowIndex, field, value) => {
-    const updatedWorkouts = [...workouts];
-    updatedWorkouts[dayIndex].entries[rowIndex] = {
-      ...updatedWorkouts[dayIndex].entries[rowIndex],
-      [field]: value
-    };
-    setWorkouts(updatedWorkouts);
-  };
+  const buttonSpanClasses = `
+        absolute inset-0 w-full h-full
+        bg-gradient-to-r from-green-600/20 to-transparent
+        transform transition-transform duration-300 ease-out
+        translate-x-full group-hover:translate-x-0
+    `;
 
   return (
     <div className="p-6">
-      {/* Arms Workout Guide Section */}
-      <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold">Arms</h1>
-        <p className="mt-4 max-w-2xl mx-auto text-gray-700">
-          Your Arms include biceps, triceps, and forearms, which are essential for pushing, pulling, and grip strength.
-          Training these muscles improves both aesthetics and functional performance.  
-          <br /><br />
-          <strong>For Biceps:</strong> Focus on curls (Barbell, Dumbbell, Hammer, Overhand Grip, and Focus Curls).  
-          <br />
-          <strong>For Triceps:</strong> Lateral head: Cable pull-down, diamond push-ups, dips, close-grip bench press.  
-          Long head: Overhead extensions, Overhead plate extensions.  
-          <br />
-          <strong>For Forearms:</strong> Wrist curls (Dumbbell, Barbell, Cable), Rice Bucket Training.  
-        </p>
-        <img
-          src="https://i.pinimg.com/474x/af/6e/e2/af6ee28277203710c59bb1d9e0f1cbfd.jpg"
-          alt="Arms Workout"
-          className="mx-auto mt-4 rounded-lg shadow-lg"
-          style={{ width: '100%', maxWidth: '500px', height: 'auto' }}
-        />
-      </div>
+      <h1 className="text-center text-3xl font-bold">Arms</h1>
+      <p className="text-center mt-4 max-w-2xl mx-auto text-gray-700">
+        Your Arms include biceps, triceps, and forearms, which are essential for pushing, pulling, and grip strength.
+        Training these muscles improves both aesthetics and functional performance.
+        <br /><br />
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
+          <button
+            onClick={() => setShowBiceps(!showBiceps)}
+            className={buttonClasses(showBiceps)}
+          >
+            <span className={buttonSpanClasses}></span>
+            <span className="mr-2 text-lg">
+              {showBiceps ? '−' : '+'}
+            </span>
+            <span className="relative z-10">
+              {showBiceps ? 'Hide Biceps' : 'Show Biceps'}
+            </span>
+          </button>
+          <button
+            onClick={() => setShowTriceps(!showTriceps)}
+            className={buttonClasses(showTriceps)}
+          >
+            <span className={buttonSpanClasses}></span>
+            <span className="mr-2 text-lg">
+              {showTriceps ? '−' : '+'}
+            </span>
+            <span className="relative z-10">
+              {showTriceps ? 'Hide Triceps' : 'Show Triceps'}
+            </span>
+          </button>
+          <button
+            onClick={() => setShowForearms(!showForearms)}
+            className={buttonClasses(showForearms)}
+          >
+            <span className={buttonSpanClasses}></span>
+            <span className="mr-2 text-lg">
+              {showForearms ? '−' : '+'}
+            </span>
+            <span className="relative z-10">
+              {showForearms ? 'Hide Forearms' : 'Show Forearms'}
+            </span>
+          </button>
+        </div>
+
+        {showBiceps && (
+          <div className="mt-4 p-6 bg-white rounded-lg shadow-lg border border-gray-100 transition-all duration-500 ease-in-out transform">
+            <div className="space-y-4">
+              <strong className="text-lg text-green-700 block border-b-2 border-green-100 pb-2">
+                Biceps Exercises:
+              </strong>
+              <ul className="space-y-2 list-inside">
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Barbell Curls
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Dumbbell Curls
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Hammer Curls
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Overhand Grip Curls
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Focus Curls
+                </li>
+              </ul>
+            </div>
+          </div>
+        )}
+
+        {showTriceps && (
+          <div className="mt-4 p-6 bg-white rounded-lg shadow-lg border border-gray-100 transition-all duration-500 ease-in-out transform">
+            <div className="space-y-4">
+              <strong className="text-lg text-green-700 block border-b-2 border-green-100 pb-2">
+                Triceps Exercises:
+              </strong>
+              <div className="space-y-4">
+                <div>
+                  <ul className="space-y-2 list-inside mt-2">
+                    <li className="flex items-center">
+                      <span className="text-green-600 mr-2">•</span>
+                      Cable Pull-downs
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-green-600 mr-2">•</span>
+                      Diamond Push-ups
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-green-600 mr-2">•</span>
+                      Dips
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-green-600 mr-2">•</span>
+                      Close-grip Bench Press
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <ul className="space-y-2 list-inside mt-2">
+                    <li className="flex items-center">
+                      <span className="text-green-600 mr-2">•</span>
+                      Overhead Extensions
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-green-600 mr-2">•</span>
+                      Overhead Plate Extensions
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {showForearms && (
+          <div className="mt-4 p-6 bg-white rounded-lg shadow-lg border border-gray-100 transition-all duration-500 ease-in-out transform">
+            <div className="space-y-4">
+              <strong className="text-lg text-green-700 block border-b-2 border-green-100 pb-2">
+                Forearm Exercises:
+              </strong>
+              <ul className="space-y-2 list-inside">
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Dumbbell Wrist Curls
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Barbell Wrist Curls
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Cable Wrist Curls
+                </li>
+                <li className="flex items-center">
+                  <span className="text-green-600 mr-2">•</span>
+                  Rice Bucket Training
+                </li>
+              </ul>
+            </div>
+          </div>
+        )}
+      </p>
+
+      <img
+        src="https://i.pinimg.com/474x/af/6e/e2/af6ee28277203710c59bb1d9e0f1cbfd.jpg"
+        alt="Arms Workout"
+        className="mx-auto mt-4 rounded-lg shadow-lg"
+        style={{ width: '100%', maxWidth: '500px', height: 'auto' }}
+      />
 
       {/* Workout Tracker Section */}
-      <h2 className="text-center text-2xl font-bold mb-4">Workout Tracker</h2>
-      <div className="overflow-x-auto">
-        <table className="min-w-full border-collapse border border-gray-300">
-          <thead>
-            <tr className="bg-gray-200">
-              <th className="border p-2">Day</th>
-              <th className="border p-2">Date</th>
-              <th className="border p-2">Activity</th>
-              <th className="border p-2">Time (min)</th>
-              <th className="border p-2">Distance (km/mi)</th>
-              <th className="border p-2">Sets</th>
-              <th className="border p-2">Reps</th>
-              <th className="border p-2">Weight (kg/lbs)</th>
-            </tr>
-          </thead>
-          <tbody>
-            {workouts.map((day, dayIndex) =>
-              day.entries.map((entry, rowIndex) => (
-                <tr key={`${dayIndex}-${rowIndex}`} className="border">
-                  {rowIndex === 0 && (
-                    <td className="border p-2 text-center font-bold bg-gray-100" rowSpan="6">
-                      {day.day}
-                    </td>
-                  )}
-                  <td className="border p-2">
-                    <input type="date" className="w-full p-1 border rounded" value={entry.date} 
-                      onChange={(e) => handleChange(dayIndex, rowIndex, "date", e.target.value)} />
-                  </td>
-                  <td className="border p-2">
-                    <input type="text" className="w-full p-1 border rounded" placeholder="Workout name"
-                      value={entry.activity} onChange={(e) => handleChange(dayIndex, rowIndex, "activity", e.target.value)} />
-                  </td>
-                  <td className="border p-2">
-                    <input type="number" className="w-full p-1 border rounded" placeholder="Minutes"
-                      value={entry.time} onChange={(e) => handleChange(dayIndex, rowIndex, "time", e.target.value)} />
-                  </td>
-                  <td className="border p-2">
-                    <input type="number" className="w-full p-1 border rounded" placeholder="Distance"
-                      value={entry.distance} onChange={(e) => handleChange(dayIndex, rowIndex, "distance", e.target.value)} />
-                  </td>
-                  <td className="border p-2">
-                    <input type="number" className="w-full p-1 border rounded" placeholder="Sets"
-                      value={entry.sets} onChange={(e) => handleChange(dayIndex, rowIndex, "sets", e.target.value)} />
-                  </td>
-                  <td className="border p-2">
-                    <input type="number" className="w-full p-1 border rounded" placeholder="Reps"
-                      value={entry.reps} onChange={(e) => handleChange(dayIndex, rowIndex, "reps", e.target.value)} />
-                  </td>
-                  <td className="border p-2">
-                    <input type="number" className="w-full p-1 border rounded" placeholder="Weight"
-                      value={entry.weight} onChange={(e) => handleChange(dayIndex, rowIndex, "weight", e.target.value)} />
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+      <h2 className="text-center text-2xl font-bold mt-8 mb-4">Workout Tracker</h2>
+      <div className="max-w-5xl mx-auto">
+        <WorkoutCalendar muscleGroup="arms" />
       </div>
     </div>
   );
