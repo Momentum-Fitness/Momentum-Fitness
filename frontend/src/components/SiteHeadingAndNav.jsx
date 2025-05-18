@@ -174,6 +174,7 @@ export default function SiteHeadingAndNav() {
                 )}
               </li>
 
+              <li><NavLink to="/about">About Us</NavLink></li>
               <li><NavLink to="/event-feed">Preview Post</NavLink></li>
               <li><NavLink to="/news">Post Workout</NavLink></li>
               <li><NavLink to="/create-event">Create Post</NavLink></li>

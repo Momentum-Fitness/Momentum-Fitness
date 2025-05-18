@@ -1,7 +1,26 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&family=Oswald:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap');
+
 body {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   margin: 0;
   background: linear-gradient(to bottom, #ffffff, #000000);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------------- */
@@ -28,7 +47,7 @@ header {
   background: #000000;
   color: #07d700;
   text-decoration-color: #07d700;
-
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------------- */
@@ -62,6 +81,7 @@ nav a {
 
 /* forms */
 form {
+  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   padding: 1rem;
   border: 2px solid #04a214;
@@ -70,7 +90,6 @@ form {
   border-radius: 8px;
   box-shadow: 10px 4px 12px rgba(0, 0, 0, 0.1);
   background-color: #f8f8fa;
-
 }
 
 
@@ -90,6 +109,7 @@ form {
 
 /* Footer */
 .footer {
+  font-family: 'Poppins', sans-serif;
   position: bottom;
   display: flex;
   justify-content: space-between;
@@ -105,6 +125,8 @@ form {
 }
 
 .footer h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
   margin-bottom: 10px;
 }
 
@@ -142,7 +164,7 @@ form {
 /* NewsPage*/
 .page-container {
   padding: 20px;
-  font-family: Arial, sans-serif;
+  font-family: 'Raleway', sans-serif;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -151,6 +173,8 @@ form {
   text-align: center;
   font-size: 2em;
   color: #000000;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
 }
 
 .articles-container {
@@ -179,12 +203,16 @@ form {
 .article-title {
   font-size: 1.5em;
   color: #01070e;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
 }
 
 .article-description {
   font-size: 1em;
   color: #000000;
   margin: 8px 0;
+  font-family: 'Lato', sans-serif;
+  line-height: 1.6;
 }
 
 .article-link {
@@ -214,6 +242,7 @@ form {
   margin-bottom: 10px;
   padding: 0 10px;
   align-items: center;
+  font-family: 'Lato', sans-serif;
 }
 
 .event-card {
@@ -249,6 +278,7 @@ form {
   text-transform: uppercase;
   letter-spacing: 1.5px;
   margin-bottom: 8px;
+  font-family: 'Oswald', sans-serif;
 }
 
 .event-description {
@@ -256,6 +286,7 @@ form {
   color: #333;
   margin-bottom: 15px;
   line-height: 1.5;
+  font-family: 'Roboto', sans-serif;
 }
 
 .event-image-container {
@@ -341,7 +372,7 @@ form {
   color: white;
   text-align: center;
   padding: 50px 20px;
-  font-family: "Arial", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* Header styling */
@@ -350,6 +381,9 @@ form {
   font-weight: bold;
   margin-bottom: 10px;
   text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .header h2 {
@@ -392,16 +426,20 @@ form {
 
 /* Text styling */
 .muscle-name {
+  font-family: 'Montserrat', sans-serif;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 700;
   margin-top: 15px;
   color: #07d700;
+  letter-spacing: 0.5px;
 }
 
 .muscle-description {
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
   color: #cbd5e1;
   margin-top: 8px;
+  line-height: 1.6;
 }
 
 
@@ -415,7 +453,7 @@ form {
   color: white;
   text-align: center;
   padding: 50px 20px;
-  font-family: "Arial", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* Header styling */
@@ -424,6 +462,9 @@ form {
   font-weight: bold;
   margin-bottom: 10px;
   text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .header h2 {
@@ -466,16 +507,20 @@ form {
 
 /* Text styling */
 .muscle-name {
+  font-family: 'Montserrat', sans-serif;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 700;
   margin-top: 15px;
   color: #07d700;
+  letter-spacing: 0.5px;
 }
 
 .muscle-description {
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
   color: #cbd5e1;
   margin-top: 8px;
+  line-height: 1.6;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------------- */
@@ -562,4 +607,130 @@ input:focus {
   outline: none;
   border-color: #007bff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Update navigation styles */
+nav {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+
+/* Home Page Specific */
+.home {
+  font-family: 'Playfair Display', serif;
+}
+
+.home h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.home p {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* About Page Specific */
+.about-page {
+  font-family: 'Raleway', sans-serif;
+}
+
+.about-page h1,
+.about-page h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+/* Upper Body Page Specific */
+.upper-body-container {
+  font-family: 'Roboto', sans-serif;
+}
+
+.upper-body-container .header h1 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Lower Body Page Specific */
+.lower-body-container {
+  font-family: 'Roboto', sans-serif;
+}
+
+.lower-body-container .header h1 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Login/Signup Forms */
+form {
+  font-family: 'Poppins', sans-serif;
+}
+
+form h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Event Feed Page */
+.event-container {
+  font-family: 'Lato', sans-serif;
+}
+
+.event-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.event-description {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+}
+
+/* News Page */
+.page-container {
+  font-family: 'Raleway', sans-serif;
+}
+
+.heading {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+.article-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.article-description {
+  font-family: 'Lato', sans-serif;
+  line-height: 1.6;
+}
+
+/* User Profile Page */
+.user-profile {
+  font-family: 'Poppins', sans-serif;
+}
+
+.user-profile h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+/* Footer */
+.footer {
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
 }
