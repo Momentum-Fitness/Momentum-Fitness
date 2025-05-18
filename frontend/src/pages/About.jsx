@@ -1,4 +1,5 @@
 import pfp from '../assets/pfp.jpg';
+import logo from "../assets/logo.png";
 
 export default function AboutUsPage() {
     return (
@@ -19,10 +20,30 @@ export default function AboutUsPage() {
                 About Momentum Fitness
             </h1>
             <div className="columns mb-6" id='aboutColumns'>
-                <div className="column">
+                <div className="column" style={{ display: 'flex', justifyContent: 'center', gap: '2rem', alignItems: 'center' }}>
+                    <div style={{
+                        maxWidth: '300px',
+                        width: '300px',
+                        height: '300px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        borderRadius: '10px',
+                        overflow: 'hidden',
+                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+                    }}>
+                        <img
+                            src={logo}
+                            alt="Momentum Fitness Logo"
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'contain'
+                            }}
+                        />
+                    </div>
                     <figure className="image-container" style={{
                         maxWidth: '300px',
-                        margin: '0 auto',
                         borderRadius: '10px',
                         overflow: 'hidden',
                         boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
