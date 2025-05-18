@@ -3,13 +3,13 @@ import React from 'react';
 export default function Home() {
   return (
     <section>
-          <div className="home">
-      <h1 align="center">
-        Welcome to Momentum Fitness !
-      </h1>    </div>
+      <div className="home">
+        <h1 align="center">
+          Welcome to Momentum Fitness !
+        </h1>    </div>
 
       <p align="center">
-      A user-friendly fitness app that empowers people to learn, visualize their workouts, track their progress over time, Improve, Dominate & Build Momentum !
+        A user-friendly fitness app that empowers people to learn, visualize their workouts, track their progress over time, Improve, Dominate & Build Momentum !
       </p>
 
       <img

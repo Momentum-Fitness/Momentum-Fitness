@@ -22,8 +22,11 @@
     "@fullcalendar/interaction": "^6.1.17",
     "@fullcalendar/react": "^6.1.17",
     "@fullcalendar/timegrid": "^6.1.17",
+    "@react-three/drei": "^10.0.8",
+    "@react-three/fiber": "^9.1.2",
     "axios": "^1.7.7",
     "date-fns": "^4.1.0",
-    "react-datepicker": "^7.5.0"
+    "react-datepicker": "^7.5.0",
+    "three": "^0.176.0"
   }
 }

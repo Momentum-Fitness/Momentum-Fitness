@@ -15,6 +15,7 @@ import SiteFooter from "./components/SiteFooter";
 import NewsPage from "./pages/NewsPage";
 import EventFeed from "./pages/EventFeedPage";
 import AboutUsPage from "./pages/About";
+import WorkoutGenerator from "./pages/WorkoutGenerator";
 
 // Workout pages
 import UpperBodyPage from "./pages/UpperBodyPage";
@@ -61,6 +62,9 @@ export default function App() {
           <Route path="/news" element={<NewsPage />} />
           <Route path="/event-feed" element={<EventFeed />} />
           <Route path="/about" element={<AboutUsPage />} />
+
+          {/* Workout Generator */}
+          <Route path="/workout-generator" element={<WorkoutGenerator />} />
 
           {/* Upper Body Routes */}
           <Route path="/upper-body" element={<UpperBodyPage />} />
