@@ -86,7 +86,7 @@ export default function Calves() {
         - Leg press/Smith machine
       </p>
       <img
-        src="https://files.mtstatic.com/site_4463/51935/0?Expires=1739480868&Signature=sb8Wt3Wu6swD5Q49W25ZGz-MnYGiM~VvGU4tKJVpl-exz5Wlay5oz2yebX2nO7t95hsjQK7JhDxD8UOu5p2ruDpsa23Wou6Jct-f2DxWB2LYiQihp37HcZN558oQKinBBbZvIqIxlVx3TnZ5ZZOGhl-etbxZwbZP7dWm3QfxYGA_&Key-Pair-Id=APKAJ5Y6AV4GI7A555NA"
+        src="https://images.squarespace-cdn.com/content/v1/53ec0c09e4b0eecc91fab644/1590456963791-MNZ3O9QOAF16HHVWF8NB/Thornleigh-Performance-Physiotherapy_Calf-anatomy.jpg"
         alt="Calves Workout"
         className="mx-auto mt-4 rounded-lg shadow-lg"
         style={{ width: '100%', maxWidth: '500px', height: 'auto' }}
